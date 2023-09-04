@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/splash/presentation/views/splas_view.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,9 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
     debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      home: SplashView(),
     );
   }
 }
