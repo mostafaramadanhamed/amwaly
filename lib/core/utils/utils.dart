@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 abstract class Utils{
 
-  void push(context,Widget screen){
+ static void push(context,Widget screen){
     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>screen,));
   }
-  void pop(context){
+  static void pop(context){
     Navigator.of(context).pop();
   }
 
