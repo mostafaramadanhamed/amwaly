@@ -4,3 +4,5 @@ part of 'income_cubit.dart';
 abstract class IncomeState {}
 
 class IncomeInitial extends IncomeState {}
+class GetIncomeSuccess extends IncomeState {}
+class GetIncomeFailure extends IncomeState {}
