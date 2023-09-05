@@ -8,7 +8,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('data'.tr()),
+        title: Text('data'.tr(),),
       ),
     );
   }
