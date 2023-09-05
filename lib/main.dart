@@ -1,11 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:untitled/presentation/views/splas_view.dart';
 
-import 'features/splash/presentation/views/splas_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Hive.initFlutter();
+ // Hive.registerAdapter(IncomeModelAdapter());
+
   runApp(EasyLocalization(
       supportedLocales: [Locale('en', 'US'), Locale('ar', 'EG')],
       saveLocale: true,
