@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
 import 'package:untitled/cubit/income_cubit.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => IncomeCubit(),
       child: MaterialApp(
+        theme: ThemeData(
+          textTheme: GoogleFonts.cairoTextTheme(),
+        ),
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
