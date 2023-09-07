@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/core/widgets/button.dart';
 import 'package:untitled/core/widgets/custom_app_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -8,6 +9,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: customAppBarr(false, context, title: "add"),
+      body:Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          children: [
+            ButtonWidget(onTap: (){},)
+          ],
+        ),
+      ),
     );
   }
 }
