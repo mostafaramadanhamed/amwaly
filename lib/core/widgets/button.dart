@@ -31,7 +31,7 @@ class ButtonWidget extends StatelessWidget {
         this.borderColor = AppColors.kTextColor,
         this.inkColor = AppColors.kTextColor,
         this.withBorder = false,
-        this.radius = 80.0})
+        this.radius = 16.0})
       : super(key: key);
 
   @override
