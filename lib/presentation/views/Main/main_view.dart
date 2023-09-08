@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled/core/constants.dart';
 import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/presentation/views/Main/widgets/bottom_nav_bar_item.dart';
@@ -45,6 +46,8 @@ class _MainViewState extends State<MainView> {
           type: BottomNavigationBarType.shifting,
         ),
       ),
+
+      body: Constants.kPages[_currentIndex] ,
     );
   }
 }
