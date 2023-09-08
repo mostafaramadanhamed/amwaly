@@ -7,7 +7,7 @@ import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/income.dart';
 import 'package:untitled/presentation/views/add_name_view.dart';
-import 'package:untitled/presentation/views/main_view.dart';
+import 'package:untitled/presentation/views/Main/main_view.dart';
 import 'package:untitled/presentation/views/splash/widgets/animated_text_logo.dart';
 import 'package:untitled/presentation/views/splash/widgets/logo.dart';
 
