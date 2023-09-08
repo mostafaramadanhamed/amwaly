@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
+import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/presentation/views/add_name_view.dart';
 import 'package:untitled/presentation/views/splash/splas_view.dart';
 
@@ -36,15 +37,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light().copyWith(
-        textTheme: GoogleFonts.cairoTextTheme()
+    return BlocProvider(
+      create: (context) => IncomeCubit(),
+      child: MaterialApp(
+        theme: ThemeData.light().copyWith(
+            textTheme: GoogleFonts.cairoTextTheme()
+        ),
+
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+
+        home: AddInfoView(),
       ),
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      home:  AddNameView(),
     );
   }
 }
