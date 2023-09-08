@@ -19,8 +19,11 @@ class CustomTextField extends StatelessWidget {
         // textDirection: TextDirection.ltr,
         textInputAction: TextInputAction.done,
         cursorColor: AppColors.kLightColor,
+
         style: AppStyles.textStyle17,
         decoration: InputDecoration(
+          filled: true,
+          fillColor: AppColors.kWhiteColor,
           hintText: hint.tr(),
           hintStyle: AppStyles.textStyle15,
           border: InputBorder.none,

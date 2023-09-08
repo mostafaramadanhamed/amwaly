@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/core/widgets/button.dart';
@@ -20,7 +21,7 @@ class AddInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBarr(false, context, title: "add name"),
+      appBar: customAppBarr(true, context, title: "add info"),
       body: BlocBuilder<IncomeCubit, IncomeState>(
         builder: (context, state) {
           return Padding(
@@ -35,11 +36,9 @@ class AddInfoView extends StatelessWidget {
                   hint: "name",
                   keyboardType: TextInputType.name,),
                 21.ph,
-                Text("money".tr(), style: AppStyles.textStyle18,),
+                Text("balance".tr(), style: AppStyles.textStyle18,),
                 17.ph,
-                CustomTextField(controller: incomeController,
-                  hint: "balance",
-                  keyboardType: TextInputType.number,),
+                MoneyTextField(incomeController: incomeController),
                 55.ph,
                 ButtonWidget(
                   onTap: () {
@@ -61,6 +60,59 @@ class AddInfoView extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class MoneyTextField extends StatelessWidget {
+  const MoneyTextField({
+    super.key,
+    required this.incomeController,
+  });
+
+  final TextEditingController incomeController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+    //  padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: AppColors.kWhiteColor,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.kPrimaryColor,
+          width: 1,
+        )
+      ),
+      child: Row(
+        children: [
+          20.pw,
+          Expanded(
+            child:TextField(
+              keyboardType: TextInputType.number,
+              style: AppStyles.textStyle17,
+              controller: incomeController,decoration: InputDecoration(
+              hintText: 'money'.tr(),
+              hintStyle: AppStyles.textStyle15,
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+
+            ),)
+          ),
+          5.pw,
+          const VerticalDivider(
+            color: AppColors.kHintColor,
+            endIndent: 8,
+            indent: 8,
+
+            thickness: 2,
+          ),
+          18.pw,
+          Text("pound".tr(),style: AppStyles.textStyle15.copyWith(color: AppColors.kSecondaryColor),),
+          20.pw,
+        ],
       ),
     );
   }

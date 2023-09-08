@@ -8,6 +8,7 @@
   "add Payment": "Add Payment",
   "name": "Name",
   "balance": "Balance",
+  "pound": "Pound",
   "money": "Money",
   "category": "Category",
   "payments": "Payment Reason",
