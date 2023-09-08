@@ -4,7 +4,6 @@ import 'package:untitled/core/widgets/button.dart';
 import 'package:untitled/core/widgets/custom_app_bar.dart';
 import 'package:untitled/core/widgets/text_field.dart';
 
-import '../../core/utils/colors.dart';
 
 class HomeView extends StatefulWidget {
    const HomeView({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ TextEditingController phoneController=TextEditingController();
           children: [
             ButtonWidget(onTap: (){},),
             20.ph,
-            CustomTextField(hint: 'add')
+            const CustomTextField(hint: 'add')
           ],
         ),
       ),
