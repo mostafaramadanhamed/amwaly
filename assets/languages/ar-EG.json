@@ -1,5 +1,13 @@
 {
   "data": "بيانات",
   "add": "إضافة",
+  "add name": "إضافة إسم",
+  "add Your name": "قم بإضافة إسمك",
+  "add money": "إضافة رصيد",
+  "add payment": "إضافة مصروفات",
+  "name": "الإسم",
+  "money": "المبلغ",
+  "category": "الفئة",
+  "payments": "سبب الدفع",
   "amwaley": "أموالي"
 }

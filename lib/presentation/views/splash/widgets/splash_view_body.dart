@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:untitled/core/utils/utils.dart';
-import 'package:untitled/presentation/views/home_view.dart';
+import 'package:untitled/presentation/views/add_name_view.dart';
 import 'package:untitled/presentation/views/splash/widgets/animated_text_logo.dart';
 import 'package:untitled/presentation/views/splash/widgets/logo.dart';
 
@@ -24,7 +24,7 @@ class _SplashViewState extends State<SplashViewBody> {
 
   navigateToHome() {
     return Future.delayed(const Duration(seconds: 3),(){
-      Utils.push(context, const HomeView());
+      Utils.push(context,  AddNameView());
     });
   }
   @override

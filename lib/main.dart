@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
+import 'package:untitled/presentation/views/add_name_view.dart';
 import 'package:untitled/presentation/views/splash/splas_view.dart';
 
 import 'cubit/bloc_observer.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      home:  AddNameView(),
     );
   }
 }

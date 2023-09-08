@@ -1,6 +1,14 @@
 {
   "data": "data",
   "add": "Add",
+  "add name": "Add Name",
+  "add your name": "Add Your Name",
+  "add money": "Add Money",
+  "add Payment": "Add Payment",
+  "name": "Name",
+  "money": "Money",
+  "category": "Category",
+  "payments": "Payment Reason",
   "amwaley": "Amwaley"
 
 }

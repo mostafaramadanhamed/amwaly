@@ -5,16 +5,17 @@ import 'package:untitled/core/utils/styles.dart';
 import '../utils/colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({Key? key, this.controller, required this.hint}) : super(key: key);
+  const CustomTextField({Key? key, this.controller, required this.hint, this.keyboardType}) : super(key: key);
  final TextEditingController? controller;
  final String hint;
+ final TextInputType ? keyboardType;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       child: TextField(
         controller: controller,
-        keyboardType: TextInputType.text,
+        keyboardType:keyboardType?? TextInputType.text,
         // textDirection: TextDirection.ltr,
         textInputAction: TextInputAction.done,
         cursorColor: AppColors.kLightColor,
