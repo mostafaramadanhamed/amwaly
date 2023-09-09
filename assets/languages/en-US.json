@@ -1,6 +1,8 @@
 {
   "data": "data",
   "add": "Add",
+  "total balance": "Total Balance",
+  "hello": "Hello",
   "home": "Home",
   "profile": "Profile",
   "add name": "Add Name",
@@ -17,6 +19,7 @@
   "pound": "Pound",
   "money": "Money",
   "category": "Category",
+  "categories": "Categories",
   "payments": "Payment Reason",
   "amwaley": "Amwaley"
 

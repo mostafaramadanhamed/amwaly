@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
-import 'package:untitled/presentation/views/add_name_view.dart';
+import 'package:untitled/presentation/views/Main/add_info_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

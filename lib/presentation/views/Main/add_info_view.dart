@@ -10,7 +10,7 @@ import 'package:untitled/core/widgets/custom_app_bar.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/income.dart';
 
-import '../../core/widgets/text_field.dart';
+import '../../../core/widgets/text_field.dart';
 
 
 class AddInfoView extends StatelessWidget {
@@ -46,8 +46,6 @@ class AddInfoView extends StatelessWidget {
                     try {
                       var incomeModel=IncomeModel(title: nameController.text, income:double.parse(incomeController.text));
                       BlocProvider.of<IncomeCubit>(context).addInfo(incomeModel);
-                      print(incomeModel.title);
-                      print(incomeModel.income);
                       Fluttertoast.showToast(
                           msg: "added successfully".tr(),
                           toastLength: Toast.LENGTH_SHORT,

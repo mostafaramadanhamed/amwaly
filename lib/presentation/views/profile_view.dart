@@ -1,5 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled/core/utils/colors.dart';
+import 'package:untitled/core/utils/styles.dart';
+import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/income.dart';
 
@@ -23,14 +28,85 @@ class _ProfileViewState extends State<ProfileView> {
       body: BlocBuilder<IncomeCubit, IncomeState>(
         builder: (context, state) {
           IncomeModel income = BlocProvider.of<IncomeCubit>(context).income!;
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('${income.title}'),
-              Text('${income.income}'),
-            ],
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal:16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                47.ph,
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(FontAwesomeIcons.circleUser,size: 38,color: AppColors.kHintColor,),
+                        14.pw,
+                        Text(
+                          "hello".tr(),style: AppStyles.textStyle22,),
+                        4.pw,
+                        Text(
+                          income.title,style: AppStyles.textStyle22,),
+                      ],
+                    ),
+                    22.ph,
+                    Row(
+                      children: [
+                        Text('total balance'.tr(),style: AppStyles.textStyle20,),
+                        2.pw,
+                        Text('${income.income}',style: AppStyles.textStyle20,),
+                        4.pw,
+                        Text('pound'.tr(),style: AppStyles.textStyle20,),
+                      ],
+                    ),
+                  ],
+                ),
+                8.pw,
+                Text('categories'.tr(),style: AppStyles.textStyle18,),
+                25.ph,
+                Expanded(
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing:30,crossAxisSpacing: 20, ),
+                      itemCount: 6, itemBuilder: (context,index){
+                    return const CategoryItem();
+                  }),
+                ),
+              ],
+            ),
           );
         },
+      ),
+    );
+  }
+}
+
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 174,
+      width: 154,
+      decoration: BoxDecoration(
+          color: AppColors.kWhiteColor,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(color:Colors.black.withOpacity(0.25),blurRadius: 4 ,offset: const Offset(0, 4))
+          ]
+
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(FontAwesomeIcons.capsules,size: 50,color: AppColors.kTextColor,),
+          17.ph,
+          Text('data'.tr(),style: AppStyles.textStyle20.copyWith(
+            fontWeight: FontWeight.w600,
+          ),)
+        ],
       ),
     );
   }
