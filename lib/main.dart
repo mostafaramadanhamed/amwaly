@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
 import 'package:untitled/cubit/income_cubit.dart';
-import 'package:untitled/presentation/views/add_name_view.dart';
 import 'package:untitled/presentation/views/Main/main_view.dart';
 import 'package:untitled/presentation/views/splash/splas_view.dart';
 
@@ -42,6 +41,7 @@ class MyApp extends StatelessWidget {
       create: (context) => IncomeCubit(),
       child: MaterialApp(
         theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: const Color(0xffFFFAFA),
             textTheme: GoogleFonts.cairoTextTheme()
         ),
 
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         debugShowCheckedModeBanner: false,
 
-        home: MainView(),
+        home: const MainView(),
       ),
     );
   }

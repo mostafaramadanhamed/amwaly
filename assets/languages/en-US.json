@@ -1,11 +1,17 @@
 {
   "data": "data",
   "add": "Add",
+  "home": "Home",
+  "profile": "Profile",
   "add name": "Add Name",
   "add info": "Add You Info",
   "add your name": "Add Your Name",
   "add money": "Add Money",
   "add Payment": "Add Payment",
+  "added successfully": "Added Successfully",
+  "FormatException: Invalid double":"Invalid Input" ,
+
+
   "name": "Name",
   "balance": "Balance",
   "pound": "Pound",

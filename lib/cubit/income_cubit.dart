@@ -24,7 +24,7 @@ class IncomeCubit extends Cubit<IncomeState> {
   IncomeModel ? income;
   fetchName() {
     var incomeBox=Hive.box<IncomeModel>(DatabaseConstance.kBoxName);
-    income =incomeBox.values.first;
+    income =incomeBox.values.last;
     emit(GetIncomeSuccess());
   }
 }

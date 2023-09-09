@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:untitled/core/constants.dart';
-import 'package:untitled/core/utils/colors.dart';
-import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/presentation/views/Main/widgets/bottom_nav_bar_item.dart';
-import 'package:untitled/presentation/views/profile_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -27,6 +24,7 @@ class _MainViewState extends State<MainView> {
             topRight: Radius.circular(16),
             topLeft: Radius.circular(16),
           ),
+          color: Colors.white,
 
         ),
         child: BottomNavigationBar(
@@ -35,8 +33,8 @@ class _MainViewState extends State<MainView> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: [
-            bottomNavigationBarItem(icon: FontAwesomeIcons.circleUser, toolTip: 'Profile', context: context),
-            bottomNavigationBarItem(icon: FontAwesomeIcons.house, toolTip: 'Home', context: context),
+            bottomNavigationBarItem(icon: FontAwesomeIcons.circleUser, toolTip: 'profile', context: context),
+            bottomNavigationBarItem(icon: FontAwesomeIcons.house, toolTip: 'home', context: context),
           ],
           onTap: (index) {
             setState(() {

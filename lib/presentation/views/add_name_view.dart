@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
@@ -47,10 +48,29 @@ class AddInfoView extends StatelessWidget {
                       BlocProvider.of<IncomeCubit>(context).addInfo(incomeModel);
                       print(incomeModel.title);
                       print(incomeModel.income);
-
-                    ///  Utils.pop(context);
+                      Fluttertoast.showToast(
+                          msg: "added successfully".tr(),
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor:AppColors.kTextColor,
+                          textColor: Colors.white,
+                          fontSize: 18.0
+                      );
+                    nameController.clear();
+                    incomeController.clear();
+                    Utils.pop(context);
                     } catch (e) {
-                      print(e);
+                      debugPrint(e.toString());
+                      Fluttertoast.showToast(
+                          msg: "FormatException: Invalid double".tr(),
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 18.0
+                      );
                     }
 
                   },
