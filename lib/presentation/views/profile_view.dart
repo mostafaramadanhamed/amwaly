@@ -21,7 +21,22 @@ class _ProfileViewState extends State<ProfileView> {
     super.initState();
     BlocProvider.of<IncomeCubit>(context).fetchName();
   }
-
+List<String>titles=[
+  'health',
+  'food',
+  'house',
+  'education',
+  'clothes',
+  'other',
+];
+  List<IconData>icons=[
+    FontAwesomeIcons.capsules,
+    Icons.fastfood_outlined,
+    Icons.cottage_outlined,
+    Icons.import_contacts_outlined,
+    FontAwesomeIcons.shirt,
+    FontAwesomeIcons.ellipsisVertical,
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +83,7 @@ class _ProfileViewState extends State<ProfileView> {
                       physics: const BouncingScrollPhysics(),
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing:30,crossAxisSpacing: 20, ),
                       itemCount: 6, itemBuilder: (context,index){
-                    return const CategoryItem();
+                    return  CategoryItem(title: titles[index], icon: icons[index],);
                   }),
                 ),
               ],
@@ -82,31 +97,35 @@ class _ProfileViewState extends State<ProfileView> {
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
-    super.key,
+    super.key, required this.title, required this.icon,
   });
-
+final String title;
+final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 174,
-      width: 154,
-      decoration: BoxDecoration(
-          color: AppColors.kWhiteColor,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(color:Colors.black.withOpacity(0.25),blurRadius: 4 ,offset: const Offset(0, 4))
-          ]
+    return GestureDetector(
+      onTap: (){},
+      child: Container(
+        height: 174,
+        width: 154,
+        decoration: BoxDecoration(
+            color: AppColors.kWhiteColor,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(color:Colors.black.withOpacity(0.25),blurRadius: 4 ,offset: const Offset(0, 4))
+            ]
 
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(FontAwesomeIcons.capsules,size: 50,color: AppColors.kTextColor,),
-          17.ph,
-          Text('data'.tr(),style: AppStyles.textStyle20.copyWith(
-            fontWeight: FontWeight.w600,
-          ),)
-        ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Icon(icon,size: 50,color: AppColors.kTextColor,),
+            17.ph,
+            Text(title.tr(),style: AppStyles.textStyle20.copyWith(
+              fontWeight: FontWeight.w600,
+            ),)
+          ],
+        ),
       ),
     );
   }
