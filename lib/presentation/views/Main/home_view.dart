@@ -1,9 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/core/utils/colors.dart';
-import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/presentation/views/Main/add_info_view.dart';
+import 'package:untitled/presentation/views/Main/widgets/home_item.dart';
 import 'package:untitled/presentation/views/add_money_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -29,23 +27,3 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class HomeItem extends StatelessWidget {
-  const HomeItem({
-    super.key, required this.title, required this.screen,
-  });
-final String title;
-final Widget screen;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title.tr(),style: AppStyles.textStyle20.copyWith(color: AppColors.kSecondaryColor),),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.0),
-        side: const BorderSide(color: AppColors.kLightColor),
-      ),
-      onTap: (){
-        Utils.push(context, screen);
-      },
-    );
-  }
-}

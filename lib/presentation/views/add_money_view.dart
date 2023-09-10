@@ -13,15 +13,19 @@ final TextEditingController incomeController=TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: customAppBarr(true, context, title: "add money"),
-      body: Column(
-        children: [
-          18.ph,
-          Text('add your money'.tr(),style: AppStyles.textStyle18,),
-          32.ph,
-          MoneyTextField(incomeController: incomeController),
-          168.ph,
-          ButtonWidget(onTap: (){},),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            18.ph,
+            Text('add your money'.tr(),style: AppStyles.textStyle18,),
+            32.ph,
+            MoneyTextField(incomeController: incomeController),
+            168.ph,
+            ButtonWidget(onTap: (){},),
+          ],
+        ),
       ),
     );
   }
