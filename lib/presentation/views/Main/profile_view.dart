@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled/core/constants.dart';
 import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
@@ -22,22 +23,6 @@ class _ProfileViewState extends State<ProfileView> {
     super.initState();
     BlocProvider.of<IncomeCubit>(context).fetchName();
   }
-List<String>titles=[
-  'health',
-  'food',
-  'house',
-  'education',
-  'clothes',
-  'other',
-];
-  List<IconData>icons=[
-    FontAwesomeIcons.capsules,
-    Icons.fastfood_outlined,
-    Icons.cottage_outlined,
-    Icons.import_contacts_outlined,
-    FontAwesomeIcons.shirt,
-    FontAwesomeIcons.ellipsisVertical,
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +69,7 @@ List<String>titles=[
                       physics: const BouncingScrollPhysics(),
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing:30,crossAxisSpacing: 20, ),
                       itemCount: 6, itemBuilder: (context,index){
-                    return  CategoryItem(title: titles[index], icon: icons[index],);
+                    return  CategoryItem(title: Constants.titles[index], icon: Constants.icons[index],);
                   }),
                 ),
               ],

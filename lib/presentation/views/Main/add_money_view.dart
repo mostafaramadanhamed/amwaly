@@ -8,9 +8,9 @@ import 'package:untitled/core/widgets/button.dart';
 import 'package:untitled/core/widgets/custom_app_bar.dart';
 import 'package:untitled/presentation/views/Main/widgets/money_text_field.dart';
 
-import '../../core/utils/colors.dart';
-import '../../cubit/income_cubit.dart';
-import '../../data/models/income.dart';
+import '../../../core/utils/colors.dart';
+import '../../../cubit/income_cubit.dart';
+import '../../../data/models/income.dart';
 
 class AddMoneyView extends StatefulWidget {
   const AddMoneyView({Key? key}) : super(key: key);
