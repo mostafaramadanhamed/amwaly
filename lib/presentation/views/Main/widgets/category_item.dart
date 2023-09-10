@@ -4,6 +4,7 @@ import 'package:untitled/core/utils/utils.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/styles.dart';
+import '../category_view.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
@@ -14,7 +15,9 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        Utils.push(context,  CategoryView(title: title,));
+      },
       child: Container(
         height: 174,
         width: 154,
