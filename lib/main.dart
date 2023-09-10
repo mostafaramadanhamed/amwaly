@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
 import 'package:untitled/cubit/income_cubit.dart';
+import 'package:untitled/data/models/payment_model.dart';
 import 'package:untitled/presentation/views/Main/main_view.dart';
-import 'package:untitled/presentation/views/splash/splas_view.dart';
 
 import 'cubit/bloc_observer.dart';
 import 'data/models/income.dart';
@@ -18,6 +18,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   Bloc.observer = MyBlocObserver();
   Hive.registerAdapter(IncomeModelAdapter());
+  Hive.registerAdapter(PaymentModelAdapter());
   await Hive.openBox<IncomeModel>(DatabaseConstance.kBoxName);
 
   runApp(EasyLocalization(
