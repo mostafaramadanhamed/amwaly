@@ -6,7 +6,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:untitled/core/api_constants.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/payment_model.dart';
-import 'package:untitled/presentation/views/Main/main_view.dart';
+import 'package:untitled/presentation/views/splash/splas_view.dart';
 
 import 'cubit/bloc_observer.dart';
 import 'data/models/income.dart';
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         locale: context.locale,
         debugShowCheckedModeBanner: false,
 
-        home: const MainView(),
+        home: const SplashView(),
       ),
     );
   }

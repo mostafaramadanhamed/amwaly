@@ -20,7 +20,36 @@ class _SplashViewState extends State<SplashViewBody> {
     super.initState();
     navigateToHome();
   }
-
+  // showAlertDialog(BuildContext context) {
+  //
+  //   // set up the button
+  //   Widget okButton = TextButton(
+  //     child: Text("add".tr()),
+  //     onPressed: () { Utils.push(context, AddInfoView());},
+  //   );
+  // Widget cancelButton = TextButton(
+  //     child: Text("add".tr()),
+  //     onPressed: () {Utils.pop(context); },
+  //   );
+  //
+  //   // set up the AlertDialog
+  //   AlertDialog alert = AlertDialog(
+  //     title: Text("add info".tr()),
+  //     content: Text("add info".tr()),
+  //     actions: [
+  //       okButton,
+  //       cancelButton
+  //     ],
+  //   );
+  //
+  //   // show the dialog
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return alert;
+  //     },
+  //   );
+  // }
   navigateToHome() {
     return Future.delayed(const Duration(seconds: 3),()  {
      Utils.push(context, const MainView());
