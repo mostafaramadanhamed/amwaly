@@ -1,12 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:untitled/core/utils/utils.dart';
-import 'package:untitled/cubit/income_cubit.dart';
-import 'package:untitled/data/models/income.dart';
-import 'package:untitled/presentation/views/Main/add_info_view.dart';
 import 'package:untitled/presentation/views/Main/main_view.dart';
 import 'package:untitled/presentation/views/splash/widgets/animated_text_logo.dart';
 import 'package:untitled/presentation/views/splash/widgets/logo.dart';

@@ -23,9 +23,8 @@ class IncomeCubit extends Cubit<IncomeState> {
     }
   }
   addPayment(PaymentModel payment)async{
-    emit(IncomeInitial());
     try{
-      var paymentBox=Hive.box<PaymentModel>(DatabaseConstance.kBoxName);
+      var paymentBox=Hive.box<PaymentModel>(DatabaseConstance.kBoxPayment);
       await paymentBox.add(payment);
       emit(AddPaymentsSuccess());
     }
@@ -38,5 +37,15 @@ class IncomeCubit extends Cubit<IncomeState> {
     var incomeBox=Hive.box<IncomeModel>(DatabaseConstance.kBoxName);
     income =incomeBox.values.last;
     emit(GetIncomeSuccess());
+  }
+  List<PaymentModel?>payment=[];
+  fetchPayment() {
+    try {
+      var paymentBox=Hive.box<PaymentModel>(DatabaseConstance.kBoxPayment);
+      payment =paymentBox.values.toList();
+      emit(GetPaymentsSuccess());
+    } catch (e) {
+      emit(GetPaymentsFailure());
+    }
   }
 }

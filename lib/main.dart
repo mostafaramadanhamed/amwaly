@@ -20,6 +20,7 @@ Future<void> main() async {
   Hive.registerAdapter(IncomeModelAdapter());
   Hive.registerAdapter(PaymentModelAdapter());
   await Hive.openBox<IncomeModel>(DatabaseConstance.kBoxName);
+  await Hive.openBox<PaymentModel>(DatabaseConstance.kBoxPayment);
 
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'EG')],

@@ -21,6 +21,8 @@
   "name": "Name",
   "balance": "Balance",
   "pound": "Pound",
+  "price": "Price:",
+  "empty list": "Empty List",
   "money": "Money",
   "category": "Category",
   "categories": "Categories",

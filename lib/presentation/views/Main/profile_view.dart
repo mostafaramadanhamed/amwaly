@@ -9,7 +9,6 @@ import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/income.dart';
 import 'package:untitled/presentation/views/Main/widgets/category_item.dart';
-
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
 
@@ -28,8 +27,10 @@ class _ProfileViewState extends State<ProfileView> {
     return Scaffold(
       body: BlocBuilder<IncomeCubit, IncomeState>(
         builder: (context, state) {
+
           IncomeModel income = BlocProvider.of<IncomeCubit>(context).income!;
-          return Padding(
+        //  List<PaymentModel?>payment = BlocProvider.of<IncomeCubit>(context).payment;
+          return income.title.isNotEmpty? Padding(
             padding: const EdgeInsets.symmetric(horizontal:16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +46,7 @@ class _ProfileViewState extends State<ProfileView> {
                           "hello".tr(),style: AppStyles.textStyle22,),
                         4.pw,
                         Text(
-                          income.title,style: AppStyles.textStyle22,),
+                          income.title??"",style: AppStyles.textStyle22,),
                       ],
                     ),
                     22.ph,
@@ -67,14 +68,16 @@ class _ProfileViewState extends State<ProfileView> {
                   child: GridView.builder(
                     padding: EdgeInsets.zero,
                       physics: const BouncingScrollPhysics(),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing:30,crossAxisSpacing: 20, ),
-                      itemCount: 6, itemBuilder: (context,index){
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,mainAxisSpacing:30,crossAxisSpacing: 20, ),
+                      itemCount: 6,
+                      itemBuilder: (context,index){
                     return  CategoryItem(title: Constants.titles[index], icon: Constants.icons[index],);
                   }),
                 ),
               ],
             ),
-          );
+          ):SizedBox();
         },
       ),
     );
