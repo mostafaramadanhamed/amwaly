@@ -8,11 +8,11 @@ import '../../../../core/utils/styles.dart';
 class MoneyTextField extends StatelessWidget {
   const MoneyTextField({
     super.key,
-    required this.incomeController,
+    required this.incomeController, this.hint,
   });
 
   final TextEditingController incomeController;
-
+final String ? hint;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +34,7 @@ class MoneyTextField extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 style: AppStyles.textStyle17,
                 controller: incomeController,decoration: InputDecoration(
-                hintText: 'money'.tr(),
+                hintText: hint??'money'.tr(),
                 hintStyle: AppStyles.textStyle15,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
