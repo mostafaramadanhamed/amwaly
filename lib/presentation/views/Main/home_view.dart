@@ -4,6 +4,7 @@ import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/presentation/views/Main/add_info_view.dart';
+import 'package:untitled/presentation/views/add_money_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class HomeView extends StatelessWidget {
             63.ph,
             HomeItem(title: 'add info', screen: AddInfoView(),),
             28.ph,
-            HomeItem(title: 'add money', screen: AddInfoView(),),
+            HomeItem(title: 'add money', screen: AddMoneyView(),),
             28.ph,
             HomeItem(title: 'add payment', screen: AddInfoView(),),
           ],

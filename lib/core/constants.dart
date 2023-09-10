@@ -1,4 +1,4 @@
-import 'package:untitled/presentation/views/profile_view.dart';
+import 'package:untitled/presentation/views/Main/profile_view.dart';
 
 import '../presentation/views/Main/home_view.dart';
 

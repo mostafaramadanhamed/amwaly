@@ -9,6 +9,7 @@ import 'package:untitled/core/widgets/button.dart';
 import 'package:untitled/core/widgets/custom_app_bar.dart';
 import 'package:untitled/cubit/income_cubit.dart';
 import 'package:untitled/data/models/income.dart';
+import 'package:untitled/presentation/views/Main/widgets/money_text_field.dart';
 
 import '../../../core/widgets/text_field.dart';
 
@@ -83,55 +84,3 @@ class AddInfoView extends StatelessWidget {
   }
 }
 
-class MoneyTextField extends StatelessWidget {
-  const MoneyTextField({
-    super.key,
-    required this.incomeController,
-  });
-
-  final TextEditingController incomeController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-    //  padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: AppColors.kWhiteColor,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: AppColors.kPrimaryColor,
-          width: 1,
-        )
-      ),
-      child: Row(
-        children: [
-          20.pw,
-          Expanded(
-            child:TextField(
-              keyboardType: TextInputType.number,
-              style: AppStyles.textStyle17,
-              controller: incomeController,decoration: InputDecoration(
-              hintText: 'money'.tr(),
-              hintStyle: AppStyles.textStyle15,
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-
-            ),)
-          ),
-          5.pw,
-          const VerticalDivider(
-            color: AppColors.kHintColor,
-            endIndent: 8,
-            indent: 8,
-
-            thickness: 2,
-          ),
-          18.pw,
-          Text("pound".tr(),style: AppStyles.textStyle15.copyWith(color: AppColors.kSecondaryColor),),
-          20.pw,
-        ],
-      ),
-    );
-  }
-}
