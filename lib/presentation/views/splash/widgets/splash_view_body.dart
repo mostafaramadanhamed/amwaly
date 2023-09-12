@@ -52,7 +52,7 @@ class _SplashViewState extends State<SplashViewBody> {
   // }
   navigateToHome() {
     return Future.delayed(const Duration(seconds: 3),()  {
-     Utils.push(context, const MainView());
+   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const MainView(),));
     });
   }
   @override
