@@ -40,7 +40,7 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
   child: BlocBuilder<PaymentCubit, PaymentState>(
   builder: (context, state) {
     //IncomeModel income = BlocProvider.of<IncomeCubit>(context).income!;
-    return SingleChildScrollView(
+    return  SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -89,7 +89,7 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
                       money: double.parse(moneyController.text), category: value!);
                   BlocProvider.of<PaymentCubit>(context).addPayment(paymentModel);
                   Fluttertoast.showToast(
-                      msg: "added successfully".tr(),
+                      msg:" ${"added successfully".tr()}\n${"total balance".tr()} $totalIncome",
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.CENTER,
                       timeInSecForIosWeb: 1,
@@ -121,7 +121,7 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
             ],
           
 ),
-        );
+    );
   },
 ),
 ),

@@ -8,6 +8,7 @@
   "add name": "Add Name",
   "add info": "Add You Info",
   "add your name": "Add Your Name",
+  "add your money":"Add Your Money",
   "add money": "Add Money",
   "add Payment": "Add Payment",
   "added successfully": "Added Successfully",
@@ -23,6 +24,8 @@
   "pound": "Pound",
   "price": "Price:",
   "empty list": "Empty List",
+  "not enough money": "Not Enough Money",
+
   "money": "Money",
   "category": "Category",
   "categories": "Categories",
