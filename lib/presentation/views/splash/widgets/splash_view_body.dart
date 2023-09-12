@@ -65,7 +65,7 @@ class _SplashViewState extends State<SplashViewBody> {
           // mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            120.ph,
+            SizedBox(height: MediaQuery.of(context).size.height/4,),
             const Logo(),
             32.ph,
             const AnimatedLogoText(),
