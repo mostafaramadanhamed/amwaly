@@ -19,10 +19,10 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
   List<PaymentModel?>payment=[];
-  fetchPayment() {
+  fetchPayment(String title) {
     try {
       var paymentBox=Hive.box<PaymentModel>(DatabaseConstance.kBoxPayment);
-      payment =paymentBox.values.toList();
+      payment =paymentBox.values.where((element) => element.category==title).toList();
       emit(GetPaymentsSuccess());
     } catch (e) {
       emit(GetPaymentsFailure());

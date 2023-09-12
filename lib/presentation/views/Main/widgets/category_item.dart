@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled/core/utils/utils.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/styles.dart';
+import '../../../../cubit/payment_cubit.dart';
 import '../category_view.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -16,7 +18,10 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Utils.push(context,  CategoryView(title: title,));
+        Utils.push(context,  BlocProvider(
+  create: (context) => PaymentCubit(),
+  child: CategoryView(title: title,),
+));
       },
       child: Container(
         height: 174,

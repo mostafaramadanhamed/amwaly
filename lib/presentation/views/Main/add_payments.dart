@@ -6,12 +6,13 @@ import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/core/widgets/text_field.dart';
+import 'package:untitled/cubit/payment_cubit.dart';
+import 'package:untitled/cubit/payment_state.dart';
 import 'package:untitled/data/models/payment_model.dart';
 import 'package:untitled/presentation/views/Main/widgets/money_text_field.dart';
 import '../../../core/constants.dart';
 import '../../../core/widgets/button.dart';
 import '../../../core/widgets/custom_app_bar.dart';
-import '../../../cubit/income_cubit.dart';
 
 class AddPaymentsView extends StatefulWidget {
    const AddPaymentsView({Key? key}) : super(key: key);
@@ -30,17 +31,18 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: customAppBarr(true, context, title: "add payment"),
-      body:BlocBuilder<IncomeCubit, IncomeState>(
-  builder: (context, state) {
-    
-    return Padding(
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: SingleChildScrollView(
+        child: BlocProvider(
+  create: (context) => PaymentCubit(),
+  child: BlocBuilder<PaymentCubit, PaymentState>(
+  builder: (context, state) {
+    return SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               46.ph,
-               CustomTextField(hint: 'payments',controller: titleController,),
+              CustomTextField(hint: 'payments',controller: titleController,),
               31.ph,
               MoneyTextField(incomeController: moneyController,),
               31.ph,
@@ -52,67 +54,70 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
                 ),
                 child: DropdownButton<String>(
                   hint: Text('category'.tr()),
-                 isExpanded: true,
-             padding: const EdgeInsets.symmetric(horizontal: 16),
+                  isExpanded: true,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   itemHeight: 75,
-                 underline: SizedBox(),
-                 borderRadius: BorderRadius.circular(16),
-                 dropdownColor: AppColors.kWhiteColor,
-                 value: value,
-                 items: Constants.titles.map((String value) {
+                  underline: const SizedBox(),
+                  borderRadius: BorderRadius.circular(16),
+                  dropdownColor: AppColors.kWhiteColor,
+                  value: value,
+                  items: Constants.titles.map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value.tr(),style: AppStyles.textStyle20,),
                     );
                   }).toList(),
                   onChanged: (val) {
-                     value=val!;
-                     setState(() {
+                    value=val!;
+                    setState(() {
 
-                     });
+                    });
                   },
                 ),
               ),
               133.ph,
-              ButtonWidget(onTap: () {
+             ButtonWidget(onTap: () {
                 try{
-              var paymentModel=PaymentModel(title: titleController.text, money: double.parse(moneyController.text), category: value!);
-                 BlocProvider.of<IncomeCubit>(context).addPayment(paymentModel);
-              Fluttertoast.showToast(
-    msg: "added successfully".tr(),
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.CENTER,
-    timeInSecForIosWeb: 1,
-    backgroundColor:AppColors.kTextColor,
-    textColor: Colors.white,
-    fontSize: 18.0
-    );
-              print(paymentModel.title);
-              print(paymentModel.money);
-              print(paymentModel.category);
-    titleController.clear();
-    moneyController.clear();
-    Utils.pop(context);
-    }
-    catch (e) {
-    debugPrint(e.toString());
-    Fluttertoast.showToast(
-    msg: "FormatException: Invalid double".tr(),
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.CENTER,
-    timeInSecForIosWeb: 1,
-    backgroundColor: Colors.red,
-    textColor: Colors.white,
-    fontSize: 18.0
-    );
-    }
-              },),
-            ],
-          ),
-        ),
-      );
+                  var paymentModel=PaymentModel(title: titleController.text, money: double.parse(moneyController.text), category: value!);
+                  BlocProvider.of<PaymentCubit>(context).addPayment(paymentModel);
+                  Fluttertoast.showToast(
+                      msg: "added successfully".tr(),
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor:AppColors.kTextColor,
+                      textColor: Colors.white,
+                      fontSize: 18.0
+                  );
+                  print(paymentModel.title);
+                  print(paymentModel.money);
+                  print(paymentModel.category);
+                  titleController.clear();
+                  moneyController.clear();
+                  Utils.pop(context);
+                }
+                catch (e) {
+                  debugPrint(e.toString());
+                  Fluttertoast.showToast(
+                      msg: "FormatException: Invalid double".tr(),
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 18.0
+                  );
+                }
   },
 ),
+            ],
+          
+),
+        );
+  },
+),
+),
+      ),
     );
   }
 }

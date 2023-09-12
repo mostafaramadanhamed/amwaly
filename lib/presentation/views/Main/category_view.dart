@@ -7,9 +7,10 @@ import 'package:untitled/core/utils/colors.dart';
 import 'package:untitled/core/utils/styles.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/core/widgets/custom_app_bar.dart';
+import 'package:untitled/cubit/payment_cubit.dart';
+import 'package:untitled/cubit/payment_state.dart';
 import 'package:untitled/data/models/payment_model.dart';
 
-import '../../../cubit/income_cubit.dart';
 
 class CategoryView extends StatefulWidget {
   const CategoryView({Key? key, required this.title}) : super(key: key);
@@ -23,22 +24,21 @@ class _CategoryViewState extends State<CategoryView> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<IncomeCubit>(context).fetchPayment();
+    BlocProvider.of<PaymentCubit>(context).fetchPayment(widget.title);
   }
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<IncomeCubit, IncomeState>(
+    return BlocBuilder<PaymentCubit, PaymentState>(
       builder: (context, state) {
-        List<PaymentModel?>payment = BlocProvider.of<IncomeCubit>(context).payment;
+        List<PaymentModel?>payment = BlocProvider.of<PaymentCubit>(context).payment;
         return Scaffold(
       appBar: customAppBarr(true, context, title: widget.title),
-      body:  Padding(
+      body: payment.isNotEmpty? Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView.builder(
           padding: const EdgeInsets.only(top: 20),
             itemCount: payment.length,
             itemBuilder: (context,index){
-          if(payment[index]!.category==widget.title) {
             return  Container(
             padding: const EdgeInsets.only(right: 36,top: 12,left: 29,bottom: 8),
             decoration: BoxDecoration(
@@ -79,16 +79,12 @@ class _CategoryViewState extends State<CategoryView> {
               ],
             ),
           );
-          } else {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                300.ph,
-                Text('empty list'.tr(),style: AppStyles.textStyle22,),
-              ],
-            );
-          }
         },),
+      ):Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Align(alignment: Alignment.center,child: Text('empty list'.tr(),style: AppStyles.textStyle22,)),
+        ],
       ),
     );
   },
