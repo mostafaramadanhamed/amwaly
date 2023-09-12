@@ -13,10 +13,12 @@ import 'package:untitled/presentation/views/Main/widgets/money_text_field.dart';
 import '../../../core/constants.dart';
 import '../../../core/widgets/button.dart';
 import '../../../core/widgets/custom_app_bar.dart';
+import '../../../cubit/income_cubit.dart';
+import '../../../data/models/income.dart';
 
 class AddPaymentsView extends StatefulWidget {
-   const AddPaymentsView({Key? key}) : super(key: key);
-
+   const AddPaymentsView({Key? key, required this.income,}) : super(key: key);
+final IncomeModel  income;
   @override
   State<AddPaymentsView> createState() => _AddPaymentsViewState();
 }
@@ -37,6 +39,7 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
   create: (context) => PaymentCubit(),
   child: BlocBuilder<PaymentCubit, PaymentState>(
   builder: (context, state) {
+    //IncomeModel income = BlocProvider.of<IncomeCubit>(context).income!;
     return SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +81,12 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
               133.ph,
              ButtonWidget(onTap: () {
                 try{
-                  var paymentModel=PaymentModel(title: titleController.text, money: double.parse(moneyController.text), category: value!);
+                 double totalIncome=widget.income.income-double.parse(moneyController.text);
+                 var incomeModel=IncomeModel(title: widget.income.title, income:totalIncome);
+                 BlocProvider.of<IncomeCubit>(context).addInfo(incomeModel);
+                  var paymentModel=PaymentModel(
+                      title: titleController.text,
+                      money: double.parse(moneyController.text), category: value!);
                   BlocProvider.of<PaymentCubit>(context).addPayment(paymentModel);
                   Fluttertoast.showToast(
                       msg: "added successfully".tr(),
