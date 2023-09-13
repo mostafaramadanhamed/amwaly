@@ -39,46 +39,49 @@ class _CategoryViewState extends State<CategoryView> {
           padding: const EdgeInsets.only(top: 20),
             itemCount: payment.length,
             itemBuilder: (context,index){
-            return  Container(
-            padding: const EdgeInsets.only(right: 36,top: 12,left: 29,bottom: 8),
-            decoration: BoxDecoration(
-                color: AppColors.kWhiteColor,
-              borderRadius: BorderRadius.circular(32),
-              border: Border.all(color: AppColors.kTextColor,width: 0.5),
-              boxShadow:[
-                BoxShadow(color: Colors.black.withOpacity(0.25),offset: const Offset(0, 4),blurRadius: 4)
-              ]
-            ),
-            child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(child: Text(payment[index]!.title,overflow:TextOverflow.ellipsis,style: AppStyles.textStyle22,maxLines: 2,)),
-                    const Spacer(),
-                    IconButton(onPressed: (){}, icon: const Icon(FontAwesomeIcons.trash,color: AppColors.kTextColor,size: 26,)),
-                  ],
-                ),
-                5.ph,
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        Text('price'.tr(),style: AppStyles.textStyle20,),
-                        2.pw,
-                         Text(payment[index]!.money.toString(),style: AppStyles.textStyle20,),
-                        4.pw,
-                        Text('pound'.tr(),style: AppStyles.textStyle20,),
-                      ],
-                    ),
-                    const Spacer(),
-                    IconButton(onPressed: (){}, icon: const Icon(FontAwesomeIcons.rotateLeft,color: AppColors.kTextColor,size: 26,)),
-                  ],
-                ),
+            return  Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Container(
+              padding: const EdgeInsets.only(right: 36,top: 12,left: 29,bottom: 8),
+              decoration: BoxDecoration(
+                  color: AppColors.kWhiteColor,
+                borderRadius: BorderRadius.circular(32),
+                border: Border.all(color: AppColors.kTextColor,width: 0.5),
+                boxShadow:[
+                  BoxShadow(color: Colors.black.withOpacity(0.25),offset: const Offset(0, 4),blurRadius: 4)
+                ]
+              ),
+              child:Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(child: Text(payment[index]!.title,overflow:TextOverflow.ellipsis,style: AppStyles.textStyle22,maxLines: 2,)),
+                      const Spacer(),
+                      IconButton(onPressed: (){}, icon: const Icon(FontAwesomeIcons.trash,color: AppColors.kTextColor,size: 26,)),
+                    ],
+                  ),
+                  5.ph,
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          Text('price'.tr(),style: AppStyles.textStyle20,),
+                          2.pw,
+                           Text(payment[index]!.money.toString(),style: AppStyles.textStyle20,),
+                          4.pw,
+                          Text('pound'.tr(),style: AppStyles.textStyle20,),
+                        ],
+                      ),
+                      const Spacer(),
+                      IconButton(onPressed: (){}, icon: const Icon(FontAwesomeIcons.rotateLeft,color: AppColors.kTextColor,size: 26,)),
+                    ],
+                  ),
 
-              ],
-            ),
-          );
+                ],
+              ),
+          ),
+            );
         },),
       ):Column(
         mainAxisAlignment: MainAxisAlignment.center,

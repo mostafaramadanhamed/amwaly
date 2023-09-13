@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled/core/utils/utils.dart';
 import 'package:untitled/cubit/income_cubit.dart';
-import 'package:untitled/cubit/payment_cubit.dart';
-
 import 'package:untitled/presentation/views/Main/add_info_view.dart';
 import 'package:untitled/presentation/views/Main/add_payments.dart';
 import 'package:untitled/presentation/views/Main/widgets/home_item.dart';
@@ -23,14 +21,14 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<IncomeCubit>(context).fetchName();
+    //BlocProvider.of<IncomeCubit>(context).fetchName();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<IncomeCubit, IncomeState>(
       builder: (context, state) {
-        IncomeModel income = BlocProvider.of<IncomeCubit>(context).income!;
+        IncomeModel income = BlocProvider.of<IncomeCubit>(context).income??IncomeModel(title: "", income: 0.0);
         return Scaffold(
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),

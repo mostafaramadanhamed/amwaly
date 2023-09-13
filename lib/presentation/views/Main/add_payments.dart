@@ -97,9 +97,6 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
                       textColor: Colors.white,
                       fontSize: 18.0
                   );
-                  print(paymentModel.title);
-                  print(paymentModel.money);
-                  print(paymentModel.category);
                   titleController.clear();
                   moneyController.clear();
                   Utils.pop(context);

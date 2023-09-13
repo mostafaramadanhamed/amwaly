@@ -7,17 +7,8 @@ import '../utils/colors.dart';
 
 
 class ButtonWidget extends StatelessWidget {
-  String title;
 
-  double width, height, radius;
-  double? fontSize;
-  FontWeight?fontWeight;
-  Widget? child;
-  Color textColor, buttonColor, borderColor, inkColor;
-  void Function()? onTap;
-  bool withBorder;
-
-  ButtonWidget(
+  const ButtonWidget(
       {Key? key,
         this.title = "add",
         this.width = 88.0,
@@ -33,6 +24,16 @@ class ButtonWidget extends StatelessWidget {
         this.withBorder = false,
         this.radius = 16.0})
       : super(key: key);
+
+  final String title;
+
+  final double width, height, radius;
+  final double? fontSize;
+  final FontWeight?fontWeight;
+  final Widget? child;
+  final  Color textColor, buttonColor, borderColor, inkColor;
+  final void Function()? onTap;
+  final bool withBorder;
 
   @override
   Widget build(BuildContext context) {
