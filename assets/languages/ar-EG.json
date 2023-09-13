@@ -11,6 +11,8 @@
   "add money": "إضافة رصيد",
   "add payment": "إضافة مصروفات",
   "added successfully": "تمت الإضافة بنجاح",
+  "coming soon": "ستتوفر قريبا",
+  "deleted successfully": "تم الحذف بنجاح",
   "FormatException: Invalid double": "إدخال غير صالح" ,
   "name": "الإسم",
   "balance": "الرصيد",
