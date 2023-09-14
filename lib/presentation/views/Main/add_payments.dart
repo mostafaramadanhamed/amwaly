@@ -84,7 +84,8 @@ class _AddPaymentsViewState extends State<AddPaymentsView> {
                  double totalIncome=widget.income.income-double.parse(moneyController.text);
                  var incomeModel=IncomeModel(title: widget.income.title, income:totalIncome);
                  BlocProvider.of<IncomeCubit>(context).addInfo(incomeModel);
-                  var paymentModel=PaymentModel(
+                 BlocProvider.of<IncomeCubit>(context).fetchName();
+                 var paymentModel=PaymentModel(
                       title: titleController.text,
                       money: double.parse(moneyController.text), category: value!);
                   BlocProvider.of<PaymentCubit>(context).addPayment(paymentModel);
