@@ -10,4 +10,4 @@ with localization and hive db
 - browse your balance 
 - browse your payments categories
 
-
+UI link : https://www.figma.com/file/2EA5l6OZzmgE4TEGt51uLs/Amwaly?type=design&node-id=0%3A1&mode=design&t=vLF72MrEfMRkJupC-1
