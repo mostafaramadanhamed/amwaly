@@ -1,5 +1,5 @@
 #AmWaly App
-####version 1.0.0
+####version 1.0.1
 التطبيق يدعم اللغة العربية##
 #####More features in new version
 made with Flutter and Dart
